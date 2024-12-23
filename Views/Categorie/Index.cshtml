@@ -1,0 +1,29 @@
+﻿@model List<Categorie>
+<h1>liste des catégories</h1> 
+
+<div>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Name</th>
+            <th>DisplayOrder</th>
+        </tr>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td> @obj.Name</td>
+                <td> @obj.OrdreAffichage</td>
+                <td><a asp-controller="Categorie" asp-action="Edit" asp-route-id="@obj.Id"  class="btn btnprimary">Modifier</a> </td>
+                <td>
+                    <a asp-controller="Categorie" asp-action="Delete" asp-route-id="@obj.Id"
+                       class="btn btn-primary">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <div>
+        <a asp-controller="Categorie" asp-action="Create" class="btn btn-primary">
+            Créer une
+            nouvelle catégorie
+        </a>
+    </div>
+</div> 

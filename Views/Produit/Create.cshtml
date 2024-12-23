@@ -1,0 +1,43 @@
+﻿@model ProduitVM
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+<div asp-validation-summary="All"></div>
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3 raw">
+        <label asp-for="produit.Name"></label>
+        <input asp-for="produit.Name" class="form-control" />
+        <span asp-validation-for="produit.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3 raw">
+        <label asp-for="produit.Code"></label>
+        <input asp-for="produit.Code" class="form-control" />
+        <span asp-validation-for="produit.Code" class="text-danger"></span>
+    </div>
+    <div class="mb-3 raw">
+        <label asp-for="produit.PrixProduit"></label>
+        <input asp-for="produit.PrixProduit" class="form-control" />
+        <span asp-validation-for="produit.PrixProduit" class="text-danger"></span>
+    </div>
+    <div class="mb-3 raw">
+        <label asp-for="produit.Description"></label>
+        <input asp-for="produit.Description" class="form-control" />
+        <span asp-validation-for="produit.Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3 raw">
+        <label asp-for="produit.imageURL"></label>
+        <input type="file" name="file" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary form-control">Créer Produit</button>
+</form>
+<a asp-controller="Produit" asp-action="Index" class="btn btn-outline-secondary form-control">Retour à la liste</a>
+<div class="mb-3 raw">
+    <label asp-for="produit.categorieId"></label>
+    <select asp-for="produit.categorieId" asp-items="@Model.categorieListe"
+            class="form-select">
+        <option disabled selected>--choisir une catégorie--</option>
+    </select>
+</div>
+

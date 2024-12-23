@@ -1,0 +1,35 @@
+﻿@model Produit
+<h1>Supprimer un Produit</h1>
+<form method="post">
+     <div class="mb-3 raw">
+     <label asp-for="Name"></label>
+     <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+     </div>
+
+     <div class="mb-3 raw">
+        <label asp-for="Code"></label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+     </div>
+
+    <div class="mb-3 raw">
+        <label asp-for="PrixProduit"></label>
+        <input asp-for="PrixProduit" class="form-control" />
+        <span asp-validation-for="PrixProduit" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 raw">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary form-control"> Supprimer Produit</button>
+    <a asp-controller="Produit" asp-action="Index" class="btn btn-outline-secondary form-control">Retour à la liste</a>
+</form>
+@section Scripts {
+    @{
+         <partial name="_ValidationScriptsPartial" />
+    }
+}
