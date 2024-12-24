@@ -11,8 +11,8 @@ using WebApplication2.Data;
 namespace WebApplication2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241218133205_Adding_ForeinKey")]
-    partial class Adding_ForeinKey
+    [Migration("20241224093646_all")]
+    partial class all
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,7 +92,13 @@ namespace WebApplication2.Migrations
                     b.Property<int>("categorieId")
                         .HasColumnType("int");
 
+                    b.Property<string>("imageURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("categorieId");
 
                     b.ToTable("Produits");
 
@@ -104,7 +110,8 @@ namespace WebApplication2.Migrations
                             Description = "iPhone 14 Pro. Avec un appareil photo principal de 48 MP pour capturer des détails époustouflants.DynamicIsland et l'écran toujours activé, qui offrent une toute nouvelle expérience sur iPhone",
                             Name = "Iphone 14",
                             PrixProduit = 10000,
-                            categorieId = 1
+                            categorieId = 1,
+                            imageURL = " "
                         },
                         new
                         {
@@ -113,8 +120,20 @@ namespace WebApplication2.Migrations
                             Description = "Toutes les fonctions de base,désormais faciles à utiliser.Imprimez,numérisez et copiezles documents quotidiens,et profitez d’une connexion simple et sans fil",
                             Name = "Imprimante hp deskjet 2710",
                             PrixProduit = 5000,
-                            categorieId = 1
+                            categorieId = 2,
+                            imageURL = " "
                         });
+                });
+
+            modelBuilder.Entity("WebApplication2.Models.Produit", b =>
+                {
+                    b.HasOne("WebApplication2.Models.Categorie", "categorie")
+                        .WithMany()
+                        .HasForeignKey("categorieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("categorie");
                 });
 #pragma warning restore 612, 618
         }

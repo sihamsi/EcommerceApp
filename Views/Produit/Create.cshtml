@@ -30,14 +30,16 @@
         <label asp-for="produit.imageURL"></label>
         <input type="file" name="file" class="form-control" />
     </div>
+    <div class="mb-3 raw">
+        <label asp-for="produit.categorieId"></label>
+        <select asp-for="produit.categorieId" asp-items="@Model.categorieListe"
+                class="form-select">
+            <option disabled selected>--choisir une catégorie--</option>
+        </select>
+    </div>
     <button type="submit" class="btn btn-primary form-control">Créer Produit</button>
+    <a asp-controller="Produit" asp-action="Index" class="btn btn-outline-secondary form-control">Retour à la liste</a>
 </form>
-<a asp-controller="Produit" asp-action="Index" class="btn btn-outline-secondary form-control">Retour à la liste</a>
-<div class="mb-3 raw">
-    <label asp-for="produit.categorieId"></label>
-    <select asp-for="produit.categorieId" asp-items="@Model.categorieListe"
-            class="form-select">
-        <option disabled selected>--choisir une catégorie--</option>
-    </select>
-</div>
+
+
 

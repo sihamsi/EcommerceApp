@@ -35,20 +35,15 @@ namespace WebApplication2.Data
                 imageURL = " "
                 },
                 new Produit{
-                     Id = 2,
-                     Name = "Imprimante hp deskjet 2710",
-                     Description = "Toutes les fonctions de base,désormais faciles à utiliser.Imprimez,numérisez et copiezles documents quotidiens,et profitez d’une connexion simple et sans fil", 
-                     PrixProduit = 5000,
-                     Code = 546456789,
-                     categorieId = 2,
-                     imageURL =" "
+                Id = 2,
+                Name = "Imprimante hp deskjet 2710",
+                Description = "Toutes les fonctions de base,désormais faciles à utiliser.Imprimez,numérisez et copiezles documents quotidiens,et profitez d’une connexion simple et sans fil", 
+                PrixProduit = 5000,
+                Code = 546456789,
+                categorieId = 2,
+                imageURL =" "
                 }
             );
-
         }
-
-
-
-
     }
 }

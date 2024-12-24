@@ -16,13 +16,13 @@
                 <td> @obj.Code</td>
                 <td> @obj.PrixProduit</td>
                 <td> @obj.Description</td>
-                <td><a asp-controller="Produit" asp-action="Edit" asp-route-id="@obj.Id" class="btn btnprimary">Modifier</a> </td>
+                <td><a asp-controller="Produit" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">Modifier</a></td>
                 <td>
                     <a asp-controller="Produit" asp-action="Delete" asp-route-id="@obj.Id"
                        class="btn btn-primary">Supprimer</a>
                 </td>
                 <td>
-                    <img src="@obj.imageURL" width="100" />
+                    <img src="@obj.imageURL" width="100"/>
                 </td>
             </tr>
         }

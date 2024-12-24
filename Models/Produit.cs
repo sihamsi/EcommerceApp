@@ -31,6 +31,6 @@ namespace WebApplication2.Models
         [ValidateNever]
         public Categorie categorie { get; set; }
         [ValidateNever]
-        public string imageURL { get; set; }
+        public string imageURL { get; set; } 
     }
 }

@@ -70,7 +70,7 @@ namespace WebApplication2.Controllers
                 return View(obj);
             }
             [HttpPost]
-            //[ValidateAntiForgeryToken]
+            [ValidateAntiForgeryToken]
             public IActionResult Edit(Produit obj)
             {
                 if (ModelState.IsValid)

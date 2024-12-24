@@ -1,9 +1,15 @@
 ﻿@model Produit
-<h1>Modifier une Produit</h1>
+<h1>Modifier un Produit</h1>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
 <form method="post">
     <div class="mb-3 raw">
         <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
+        <input asp-for="Name" class="form-control"/>
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3 raw">
@@ -21,12 +27,12 @@
         <input asp-for="Description" class="form-control" />
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
-   
+    <div class="mb-3 raw">
+        <label asp-for="imageURL"></label>
+        <input type="file" name="file" class="form-control" />
+        <span asp-validation-for="imageURL" class="text-danger"></span>
+    </div>
     <button type="submit" class="btn btn-primary form-control"> Modifier Produit</button>
     <a asp-controller="Produit" asp-action="Index" class="btn btn-outline-secondary formcontrol">Retour à la liste</a>
 </form>
-@section Scripts {
-    @{
-        <partial name="_ValidationScriptsPartial" />
-    }
-}
+
