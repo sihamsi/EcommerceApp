@@ -11,7 +11,7 @@ using WebApplication2.Data;
 namespace WebApplication2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241224093646_all")]
+    [Migration("20241224103947_all")]
     partial class all
     {
         /// <inheritdoc />
