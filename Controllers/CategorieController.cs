@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Data;
 using WebApplication2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication2.Controllers
 {
@@ -18,6 +19,7 @@ namespace WebApplication2.Controllers
             List<Categorie> categoryList = _db.Categories.ToList();
             return View(categoryList);
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();

@@ -39,18 +39,19 @@
             <span asp-validation-for="produit.categorieId" class="text-danger"></span>
         </div>
 
-        <!-- Champ pour l'image -->
-        <div class="mb-3">
-            <label asp-for="produit.imageURL">Image actuelle</label>
-            <div>
-                <img src="@Url.Content("~/" + Model.produit.imageURL)" alt="Image du produit" style="max-width: 150px; height: auto;" />
-            </div>
-            <label asp-for="produit.imageURL">Changer l'image</label>
-            <input type="file" asp-for="produit.imageURL" class="form-control" />
-            <span asp-validation-for="produit.imageURL" class="text-danger"></span>
-        </div>
+       
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>
         <a asp-action="Index" class="btn btn-secondary">Annuler</a>
     </form>
+</div>
+<!-- Champ pour l'image -->
+<div class="mb-3">
+	<label asp-for="produit.imageURL">Image actuelle</label>
+	<div>
+		<img src="@Url.Content("~/" + Model.produit.imageURL)" alt="Image du produit" style="max-width: 150px; height: auto;" />
+	</div>
+	<label asp-for="produit.imageURL">Changer l'image</label>
+	<input type="file" asp-for="produit.imageURL" class="form-control" />
+	<span asp-validation-for="produit.imageURL" class="text-danger"></span>
 </div>

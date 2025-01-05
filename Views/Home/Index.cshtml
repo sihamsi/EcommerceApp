@@ -1,8 +1,54 @@
-﻿@{
+﻿@using WebApplication2.Models
+@model List<Produit>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="jumbotron text-center bg-light mb-4 rounded">
+        @if (Model == null || !Model.Any())
+        {
+            <h1 class="display-4">Welcome to Our Store!</h1>
+            <p class="lead">We are currently stocking our products. Please check back later.</p>
+            <hr class="my-4">
+            <p>
+                If you want to learn more about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>, click the link.
+            </p>
+        }
+        else
+        {
+            <h1 class="display-4">Welcome to Our E-Commerce Store!</h1>
+            <p class="lead">Explore our new collection and get amazing deals!</p>
+            <hr class="my-4">
+            <p>
+                Learn more about
+                <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+            </p>
+            <a asp-controller="Produit" asp-action="Index" class="btn btn-primary btn-lg" role="button">
+                <i class="fa fa-shopping-bag"></i> View All Products
+            </a>
+        }
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <h2 class="text-center mb-4">Featured Products</h2>
+        <div class="row">
+            @foreach (var produit in Model)
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100">
+                        <img src="@Url.Content("~/" + produit.imageURL)" class="card-img-top" alt="Image du produit" style="max-height: 200px; object-fit: contain;">
+                        <div class="card-body">
+                            <h5 class="card-title">@produit.Name</h5>
+                            <p class="card-text">@produit.Description</p>
+                            <p class="card-text"><strong>Price:</strong> $@produit.PrixProduit</p>
+                            <a asp-controller="Produit" asp-action="Edit" asp-route-id="@produit.Id" class="btn btn-primary">View Product</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
 </div>

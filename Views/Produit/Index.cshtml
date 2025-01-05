@@ -1,36 +1,41 @@
 ﻿@model List<Produit>
 <h1>liste des Produits</h1>
-
+<div>
+    <a asp-controller="Produit" asp-action="Create" class="btn btn-primary">Créer un nouveau produit</a>
+</div>
 <div>
     <table class="table table-bordered table-striped">
-        <tr>
-            <th>Name</th>
-            <th>Code</th>
-            <th>PrixProduit</th>
-            <th>Description</th>
-        </tr>
-        @foreach (var obj in Model)
-        {
+        <thead>
             <tr>
-                <td> @obj.Name</td>
-                <td> @obj.Code</td>
-                <td> @obj.PrixProduit</td>
-                <td> @obj.Description</td>
-                <td><a asp-controller="Produit" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">Modifier</a></td>
-                <td>
-                    <a asp-controller="Produit" asp-action="Delete" asp-route-id="@obj.Id"
-                       class="btn btn-primary">Supprimer</a>
-                </td>
-                <td>
-                    <img src="@obj.imageURL" width="100"/>
-                </td>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Actions</th>
+                <th>Picture</th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.Name</td>
+                    <td>@obj.Code</td>
+                    <td>@obj.PrixProduit</td>
+                    <td>@obj.Description</td>
+                    <td>
+                        <a asp-controller="Produit" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning">
+                            Modifier
+                        </a>
+                        <a asp-controller="Produit" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">
+                            Supprimer
+                        </a>
+                    </td>
+                    <td>
+                        <img src="@obj.imageURL" width="100" />
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
-    <div>
-        <a asp-controller="Produit" asp-action="Create" class="btn btn-primary">
-            Créer un
-            nouveau Produit
-        </a>
-    </div>
-</div> 
+</div>
